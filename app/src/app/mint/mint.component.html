@@ -1,0 +1,88 @@
+<div class="container wrap d-flex align-items-center pt-100">
+  <div class="main-content">
+    <div nz-row [nzGutter]="25" nzJustify="center">
+      <div nz-col [nzXXl]="24" [nzXs]="24">
+        <div nz-row nzGutter="24" class="align-items-center mint-row">
+          <div nz-col [nzMd]="12" [nzSm]="14" [nzSpan]="24">
+            <div class="sale-wrapper">
+              <div class="sale-timer" *ngIf="displayTimer">
+                <ng-container [ngSwitch]="currentState">
+                  <ng-container *ngSwitchCase="'willStart'">Whitelist Sale Starts In</ng-container>
+                  <ng-container *ngSwitchCase="'presaleStarted'">Whitelist Sale Ends In</ng-container>
+                  <ng-container *ngSwitchCase="'presaleEnded'">Public Sale Starts In</ng-container>
+                  <ng-container *ngSwitchCase="'publicStarted'">Public Sale Ends In</ng-container>
+                  <ng-container *ngSwitchCase="'saleEnded'">Public Sale Ended</ng-container>
+                </ng-container>
+                {{ ' ' }}
+                <countdown #cd [config]="countdownConfig" *ngIf="currentState !== 'saleEnded'"></countdown>
+              </div>
+              <div class="title">Mint Your LuckyDays NFT</div>
+              <div class="form">
+                <div class="quantity-form d-flex align-items-center justify-content-between">
+                  <span class="mt-7">Amount</span>
+                  <form [formGroup]="quantityForm" class="d-flex align-items-center justify-content-center">
+                    <button nz-button nzType="text" (click)="toggleQuantitiy()" [disabled]="!mintingWallet">-</button>
+                    <input formControlName="quantity" nz-input placeholder="1" nzBorderless readonly />
+                    <button nz-button nzType="text" (click)="toggleQuantitiy(true)" [disabled]="!mintingWallet">
+                      +
+                    </button>
+                  </form>
+                  <span class="max mt-7" (click)="setMax()">Max</span>
+                </div>
+                <nz-divider></nz-divider>
+                <div class="quantity-form d-flex justify-content-between">
+                  <span>Total</span>
+                  <span>{{ totalEth }} ETH</span>
+                </div>
+                <nz-divider></nz-divider>
+                <div class="quantity-form d-flex justify-content-between">
+                  <span>Minted</span>
+                  <span>{{ totalMinted | number }} / {{ maxSupply | number }}</span>
+                </div>
+                <div class="mint-btn">
+                  <button
+                    nz-button
+                    nzType="primary"
+                    [disabled]="(isMinting | async) || (isDisabled | async)"
+                    (click)="mintingWallet ? startMint() : connectWallet()"
+                  >
+                    <ng-container *ngIf="isMinting | async; else buttonContent"> Minting... </ng-container>
+                  </button>
+                  <span class="minting-wallet" *ngIf="mintingWallet">{{ mintingWallet }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div nz-col [nzMd]="12" [nzSm]="10" [nzSpan]="24">
+            <div class="nft-img d-flex justify-content-center">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="mt-8">
+                <defs>
+                  <clipPath id="clipping" clipPathUnits="userSpaceOnUse">
+                    <path
+                      d="
+                  M 0, 100
+                  C 0, 17.000000000000004 17.000000000000004, 0 100, 0
+                  S 200, 17.000000000000004 200, 100
+                      183, 200 100, 200
+                      0, 183 0, 100
+              "
+                      fill="#9446ED"
+                    ></path>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#clipping)">
+                  <image href="./assets/images/placeholder.jpg" width="200" height="200" clip-path="url(#clipping)"></image>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="helper" (click)="changeTab.emit(1)">Problems? Here's how to mint</div>
+  </div>
+</div>
+
+<ng-template #buttonContent>
+  {{ mintingWallet ? 'Mint Now' : 'Connect Wallet' }}
+</ng-template>

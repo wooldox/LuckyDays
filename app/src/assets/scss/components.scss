@@ -1,0 +1,349 @@
+// Header
+.ant-layout-header {
+  height: 64px;
+  padding-top: 1rem;
+}
+.ant-layout-header,
+.ant-menu.ant-menu-dark {
+  background: transparent;
+}
+.logo img {
+  max-width: 120px;
+  max-height: 34px;
+}
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 5px;
+  padding: 6px;
+  line-height: 10px;
+  border-radius: 50%;
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Content
+.ant-layout {
+  background: transparent;
+}
+.ant-layout-content {
+  background-color: transparent;
+}
+.main-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -9;
+  width: 100vw;
+}
+.main-content {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 740px;
+  &:not(.helper-content) > .ant-row {
+    background-color: rgb(216 210 221 / 8%);
+    border-radius: 30px;
+    padding: 4rem;
+    @media all and (max-width: 991px) {
+      height: auto;
+    }
+    @media all and (max-width: 700px) {
+      padding: 2rem 1rem;
+    }
+  }
+}
+.sale-timer {
+  font-size: 18px;
+  padding: 8px 12px 9px;
+  background-color: rgb(127 87 244 / 18%);
+  border-radius: 7px 7px 7px 7px;
+  width: fit-content;
+  color: #d7caff;
+  line-height: 16px;
+  font-weight: 500;
+}
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 2rem;
+  line-height: 54px;
+}
+.form {
+  margin-top: 2rem;
+}
+.quantity-form {
+  form {
+    width: 100%;
+    input {
+      width: 100%;
+      max-width: 55px;
+      text-align: center;
+      font-size: 28px;
+      height: 40px;
+      font-family: sans-serif;
+    }
+    button {
+      font-size: 24px;
+      font-family: sans-serif;
+      line-height: 8px;
+    }
+  }
+  & > span {
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 0;
+    padding-bottom: 0px;
+    &.max {
+      background: #fff;
+      border-radius: 4px;
+      color: #000;
+      line-height: 20px;
+      padding: 1px 6px 2px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+  }
+}
+.ant-divider-horizontal {
+  margin: 12px 0;
+  border-top: 1px solid rgb(255 255 255 / 50%);
+}
+.mint-btn {
+  margin-top: 1rem;
+  button.ant-btn {
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    border-radius: 6px;
+  }
+}
+.helper {
+  font-size: 18px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.helper-box {
+  margin: 0 auto;
+  border: 2px solid #7f57f4;
+  border-radius: 1.25rem;
+  min-height: 450px;
+  max-width: 790px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  h2 {
+    margin-left: 10px;
+  }
+  .icon {
+    height: 445px;
+    overflow: hidden;
+    border-radius: inherit;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+}
+.action-btns {
+  margin-top: 2rem;
+  button {
+    font-weight: 600;
+    font-size: 18px;
+    height: 50px;
+    padding-bottom: 8px;
+    border-radius: 6px;
+    width: 25%;
+    &:first-child {
+      margin-right: 1rem;
+    }
+  }
+}
+h1.title {
+  font-size: 45px;
+  text-align: center;
+}
+.ant-tabs-nav-wrap,
+.ant-tabs > .ant-tabs-nav {
+  display: none !important;
+}
+@media all and (max-width: 991px) {
+  .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .sale-timer {
+    font-size: 12px;
+  }
+  .quantity-form > span {
+    font-size: 14px;
+  }
+  .quantity-form form input {
+    width: 100%;
+    max-width: 38px;
+    text-align: center;
+    font-size: 20px;
+    height: 33px;
+    padding-top: 0;
+  }
+  .quantity-form form button {
+    font-size: 22px;
+    font-family: sans-serif;
+    line-height: 2px;
+  }
+  .ant-divider-horizontal {
+    margin: 8px 0 8px;
+  }
+  .mint-btn button.ant-btn {
+    font-size: 16px;
+    height: 38px;
+    padding-bottom: 8px;
+  }
+  .action-btns button {
+    width: 35%;
+  }
+  h1.title {
+    font-size: 28px;
+  }
+  .helper-box {
+    min-height: 350px;
+  }
+}
+@media all and (min-width: 768px) {
+  .action-btns button {
+    &:first-child {
+      display: none;
+    }
+    &:nth-child(2) {
+      margin-right: 1rem;
+    }
+  }
+}
+@media all and (max-width: 767px) {
+  .ant-layout-header {
+    width: calc(100vw - 4rem);
+  }
+  .title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .main-content {
+    padding: 2rem;
+  }
+  .helper {
+    width: 100%;
+    text-align: center;
+  }
+  h1.title {
+    margin-bottom: 2rem;
+  }
+  .helper-box .icon {
+    height: 345px;
+  }
+  .helper-wrap {
+    display: none;
+  }
+  .action-btns {
+    flex-direction: column;
+    button {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      margin-right: 0 !important;
+      width: 45%;
+    }
+  }
+  .helper-box h2 {
+    font-size: 18px;
+  }
+}
+@media all and (max-width: 575px) {
+  .mint-row {
+    flex-direction: column;
+    & > .ant-col {
+      width: 100%;
+      &:last-child {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .action-btns button {
+    width: 75%;
+  }
+  h1.title {
+    font-size: 24px;
+  }
+  .helper-box {
+    min-height: 250px;
+  }
+  .helper-box h2 {
+    font-size: 16px;
+  }
+}
+@media all and (max-width: 476px) {
+  .action-btns button {
+    font-size: 15px;
+  }
+  h1.title {
+    font-size: 20px;
+  }
+  .helper-box {
+    min-height: 200px;
+  }
+  .helper-box .icon {
+    max-width: 32px;
+  }
+}
+@media all and (max-width: 400px) {
+  .action-btns button {
+    font-size: 15px;
+    padding: 0 0 3px 0;
+  }
+  h1.title {
+    font-size: 18px;
+    margin-bottom: 1rem;
+  }
+}
+
+span.minting-wallet {
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  position: absolute;
+  bottom: -30px;
+  @media all and (max-width: 991px) {
+    font-size: 10px;
+  }
+}
+
+nz-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .ant-spin-dot-item {
+    background-color: #fff !important;
+  }
+}
+
+app-mint > div {
+  flex-wrap: wrap;
+}
+
+.nft-img {
+  margin-left: 3.5rem;
+  transform: rotate(3deg);
+  @media all and (max-width: 575px) {
+    width: 65%;
+    margin: 2rem auto 0;
+  }
+}

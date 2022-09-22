@@ -1,0 +1,25 @@
+<nz-layout class="app-main-layout">
+  <nz-header class="container d-flex justify-content-between">
+    <div class="logo"><img src="./assets/images/logo.png" alt="" /></div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" class="d-flex align-items-center">
+      <li nz-menu-item><img src="./assets/icons/opensea.svg" alt="" /></li>
+      <li nz-menu-item><img src="./assets/icons/twitter.svg" alt="" /></li>
+      <li nz-menu-item><img src="./assets/icons/discord.svg" alt="" /></li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <img src="./assets/images/gradient_dark.jpeg" alt="" class="main-bg" />
+    <nz-tabset [nzSelectedIndex]="currentPage" [nzAnimated]="false">
+      <nz-tab>
+        <ng-template nz-tab>
+          <app-mint (changeTab)="changeTab($event)"></app-mint>
+        </ng-template>
+      </nz-tab>
+      <nz-tab>
+        <ng-template nz-tab>
+          <app-helper (changeTab)="changeTab($event)"></app-helper>
+        </ng-template>
+      </nz-tab>
+    </nz-tabset>
+  </nz-content>
+</nz-layout>

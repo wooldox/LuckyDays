@@ -1,0 +1,10 @@
+// Additional global variables and font-family can be defined in theme.less
+
+// Fonts  
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+// Utility
+@import 'assets/scss/utility.scss';
+
+// Components and content
+@import 'assets/scss/components.scss';
